@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Ditta>
+@{
+    ViewData["Title"] = "Ditte";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Codice</th>
+            <th scope="col">Descrizione</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.IDElemento</th>
+                <td>@item.Codice</td>
+                <td><a asp-action="Index" asp-controller="Documenti" asp-route-idelemento="@item.IDElemento">@item.Descrizione</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>

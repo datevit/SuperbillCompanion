@@ -1,0 +1,57 @@
+﻿@model PageResults<Documento>
+
+@{
+    ViewData["Title"] = "Fatture 2021";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Data</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Imponibile</th>
+            <th scope="col">IVA</th>
+            <th scope="col">Totale documento</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <th scope="row">@item.ID</th>
+                <td>@item.NumeroDocumento</td>
+                <td>@item.DataDocumento.ToString("d")</td>
+                <td>@item.Denominazione</td>
+                <td class="text-right">@item.Imponibile.ToString("c")</td>
+                <td class="text-right">@item.IVA.ToString("c")</td>
+                <td class="text-right">@item.Totale.ToString("c")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.PageCount > 1)
+{
+    <nav aria-label="Cambia pagina">
+        <ul class="pagination pagination-lg justify-content-end">
+            @for (int i = 0; i < Model.PageCount; i++)
+            {
+                if (i == Model.Page)
+                {
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link">@(i+1)</span>
+                    </li>
+                } else
+                {
+                    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-idelemento="@ViewData["idelemento"]" asp-route-page="@i" >@(i+1)</a></li>
+                }
+            }
+        </ul>
+    </nav>
+}
