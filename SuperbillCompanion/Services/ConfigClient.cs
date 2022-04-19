@@ -17,7 +17,7 @@ namespace SuperbillCompanion.Services
         readonly RestClient _restClient;
         public ConfigClient(HttpClient httpClient, IAuthenticator auth)
         {
-            var options = new RestClientOptions("https://superbillstageapi.datev.it");
+            var options = new RestClientOptions("https://superbillapi.datev.it");
             _restClient = new RestClient(httpClient, options);
             _restClient.Authenticator = auth;
         }
