@@ -5,12 +5,12 @@
 
 ## SupebillCompanion
 
-SuperbillCompanion é una applicazione ASP.net Core di esempio che ti permette di prendere confidenza con le API di SuperBill. Per semplicità non utilizza un database (come normalmente avviene in una applicazione reale) per memorizzare alcune informazioni necessarie per individure il tenant dell'utente e l'Authorization-Key per il controllo della licenza.
+SuperbillCompanion é una applicazione ASP.net Core di esempio che ti permette di prendere confidenza con le API di SuperBill. Per semplicità SuperbillCompanion non utilizza un database per memorizzare alcune informazioni necessarie per individure il tenant dell'utente e l'Authorization-Key per il controllo della licenza, pertanto nel caso in cui si voglia simulare l'accesso a diversi contesti, é necessario rimuovere manualmente i cookie API_KEY e TENANT_KEY.
 
 
 ### Prerequisiti
 Per utilizzare SuperbillCompanion é necessario aver installato l'SDK di ASP.net Core 3.1 e aver registrato e configurato una applicazione di integrazione sul sito sviluppatori Datev Koinos (maggiori informazioni [qui](https://developer.datev.it/)).
-Nella configurazione della applicazione di integrazione riportare l'indirizzo https://localhost:5001/signin-oidc (5001 è la porta di default, utilizzare la propria se diversa) nell'elenco degli "URI di reindirizzamento" e selezionare le autorizzazioni profile, openid, config, integrasdi e efat.
+Nella configurazione della applicazione di integrazione riportare l'indirizzo https://localhost:5001/signin-oidc (5001 è la porta di default, utilizzare la propria se diversa) nell'elenco degli **URI di reindirizzamento** e selezionare le autorizzazioni **profile**, **openid**, **config**, **integrasdi** e **efat**.
 
 ### Setup del progetto
 
